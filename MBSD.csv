@@ -1,0 +1,316 @@
+node,model,press,response
+Birds,FCM,warming,-2.58E+00
+Birds,FCM,trawl,-2.78E+00
+Birds,FCM,tw,-5.346924
+Birds,BBN,warming,0.28
+Birds,BBN,trawl,0.38
+Birds,BBN,tw,0.28
+Birds,QNM,warming,0.4376
+Birds,QNM,trawl,0.4348
+Birds,QNM,tw,0.4363
+Community Infrastructure,FCM,warming,-6.36E-01
+Community Infrastructure,FCM,trawl,-3.26E-02
+Community Infrastructure,FCM,tw,-0.6663203
+Community Infrastructure,BBN,warming,0.43
+Community Infrastructure,BBN,trawl,0.45
+Community Infrastructure,BBN,tw,0.43
+Community Infrastructure,QNM,warming,0.1458
+Community Infrastructure,QNM,trawl,0.1481
+Community Infrastructure,QNM,tw,0.1426
+Cultural,FCM,warming,-4.60E-02
+Cultural,FCM,trawl,2.58E-01
+Cultural,FCM,tw,0.2353248
+Cultural,QNM,warming,0.3548
+Cultural,QNM,trawl,0.1597
+Cultural,QNM,tw,0.3303
+Cultural,BBN,warming,0.27
+Cultural,BBN,trawl,0.37
+Cultural,BBN,tw,0.27
+Erosion,FCM,warming,1.74E-01
+Erosion,FCM,trawl,3.65E-02
+Erosion,FCM,tw,0.2088079
+Erosion,BBN,warming,0.91
+Erosion,BBN,trawl,0.9
+Erosion,BBN,tw,0.91
+Erosion,QNM,warming,0.6431
+Erosion,QNM,trawl,0.8353
+Erosion,QNM,tw,0.6518
+Farm Land,FCM,warming,-3.61E+00
+Farm Land,FCM,trawl,-4.87E-02
+Farm Land,FCM,tw,-3.649297
+Farm Land,BBN,warming,0.37
+Farm Land,BBN,trawl,0.45
+Farm Land,BBN,tw,0.37
+Farm Land,QNM,warming,0.2048
+Farm Land,QNM,trawl,0.1399
+Farm Land,QNM,tw,0.2006
+Farming,FCM,warming,-2.58E-01
+Farming,FCM,trawl,-3.47E-03
+Farming,FCM,tw,-0.2609127
+Farming,BBN,warming,0.43
+Farming,BBN,trawl,0.5
+Farming,BBN,tw,0.43
+Farming,QNM,warming,0.2048
+Farming,QNM,trawl,0.1398
+Farming,QNM,tw,0.2006
+Fish,FCM,warming,-9.27E-01
+Fish,FCM,trawl,-6.48E+00
+Fish,FCM,tw,-7.469955
+Fish,BBN,warming,0.42
+Fish,BBN,trawl,0.29
+Fish,BBN,tw,0.29
+Fish,QNM,warming,0.6282
+Fish,QNM,trawl,0.2045
+Fish,QNM,tw,0.617
+Fishing,FCM,warming,-1.06E-01
+Fishing,FCM,trawl,1.50E+01
+Fishing,FCM,tw,15.03859
+Fishing,BBN,warming,0.49
+Fishing,BBN,trawl,1
+Fishing,BBN,tw,1
+Fishing,QNM,warming,0.3279
+Fishing,QNM,trawl,0.7736
+Fishing,QNM,tw,0.3432
+Flooding,FCM,warming,5.89E-01
+Flooding,FCM,trawl,4.46E-03
+Flooding,FCM,tw,0.5934177
+Flooding,QNM,warming,0.8975
+Flooding,QNM,trawl,0.8591
+Flooding,QNM,tw,0.8981
+Flooding,BBN,warming,0.95
+Flooding,BBN,trawl,0.85
+Flooding,BBN,tw,0.95
+Habitable Land,FCM,warming,-3.72E+00
+Habitable Land,FCM,trawl,-5.53E-02
+Habitable Land,FCM,tw,-3.774308
+Habitable Land,BBN,warming,0.38
+Habitable Land,BBN,trawl,0.43
+Habitable Land,BBN,tw,0.38
+Habitable Land,QNM,warming,0.1981
+Habitable Land,QNM,trawl,0.1407
+Habitable Land,QNM,tw,0.1949
+Health and security,FCM,warming,-3.46E-02
+Health and security,FCM,trawl,4.32E-02
+Health and security,FCM,tw,0.03246533
+Health and security,BBN,warming,0.34
+Health and security,BBN,trawl,0.36
+Health and security,BBN,tw,0.34
+Health and security,QNM,warming,0.5471
+Health and security,QNM,trawl,0.7008
+Health and security,QNM,tw,0.542
+Housing,FCM,warming,-5.58E-01
+Housing,FCM,trawl,-8.49E-03
+Housing,FCM,tw,0
+Housing,BBN,warming,0.26
+Housing,BBN,trawl,0.28
+Housing,BBN,tw,0.26
+Housing,QNM,warming,0.5844
+Housing,QNM,trawl,0.6166
+Housing,QNM,tw,0.5716
+Hunting,FCM,warming,-3.82E-01
+Hunting,FCM,trawl,-8.87E-01
+Hunting,FCM,tw,-1.278562
+Hunting,BBN,warming,0.26
+Hunting,BBN,trawl,0.34
+Hunting,BBN,tw,0.26
+Hunting,QNM,warming,0.5272
+Hunting,QNM,trawl,0.1786
+Hunting,QNM,tw,0.5155
+Invasive species,FCM,warming,5.49E+00
+Invasive species,FCM,trawl,4.58E-02
+Invasive species,FCM,tw,5.527079
+Invasive species,BBN,warming,0.55
+Invasive species,BBN,trawl,0.49
+Invasive species,BBN,tw,0.55
+Invasive species,QNM,warming,1
+Invasive species,QNM,trawl,0
+Invasive species,QNM,tw,1
+Jobs,FCM,warming,-1.29E-02
+Jobs,FCM,trawl,1.47E-01
+Jobs,FCM,tw,0.1820759
+Jobs,BBN,warming,0.24
+Jobs,BBN,trawl,0.28
+Jobs,BBN,tw,0.24
+Jobs,QNM,warming,0.3803
+Jobs,QNM,trawl,0.2549
+Jobs,QNM,tw,0.3187
+Nutrients,FCM,warming,1.01E-02
+Nutrients,FCM,trawl,5.76E-05
+Nutrients,FCM,tw,0.01016337
+Nutrients,BBN,warming,0.8
+Nutrients,BBN,trawl,0.8
+Nutrients,BBN,tw,0.8
+Nutrients,QNM,warming,0.3908
+Nutrients,QNM,trawl,0.4012
+Nutrients,QNM,tw,0.3861
+NW,BBN,warming,0.41
+NW,BBN,trawl,0.44
+NW,BBN,tw,0.41
+NW,FCM,warming,-2.56E-01
+NW,FCM,trawl,-2.14E-03
+NW,FCM,tw,-0.2580608
+NW,QNM,warming,0
+NW,QNM,trawl,0
+NW,QNM,tw,0
+Oil and gas,FCM,warming,2.69E-13
+Oil and gas,FCM,trawl,2.69E-13
+Oil and gas,FCM,tw,2.69E-13
+Oil and gas,BBN,warming,0.4
+Oil and gas,BBN,trawl,0.4
+Oil and gas,BBN,tw,0.4
+Oil and gas,QNM,warming,0
+Oil and gas,QNM,trawl,0
+Oil and gas,QNM,tw,0
+Oil Spills,FCM,warming,8.81E-14
+Oil Spills,FCM,trawl,8.81E-14
+Oil Spills,FCM,tw,8.81E-14
+Oil Spills,QNM,warming,0
+Oil Spills,QNM,trawl,0
+Oil Spills,QNM,tw,0
+Oil Spills,BBN,warming,0.7
+Oil Spills,BBN,trawl,0.7
+Oil Spills,BBN,tw,0.7
+Open water,FCM,warming,5.42E-01
+Open water,FCM,trawl,-2.96E-04
+Open water,FCM,tw,0.5414855
+Open water,BBN,warming,0.62
+Open water,BBN,trawl,0.5
+Open water,BBN,tw,0.67
+Open water,QNM,warming,0.8114
+Open water,QNM,trawl,0.8611
+Open water,QNM,tw,0.811
+Other Animals,FCM,warming,-3.86E-01
+Other Animals,FCM,trawl,-6.10E+00
+Other Animals,FCM,tw,-6.530498
+Other Animals,BBN,warming,0.35
+Other Animals,BBN,trawl,0.38
+Other Animals,BBN,tw,0.35
+Other Animals,QNM,warming,0.6416
+Other Animals,QNM,trawl,0.3569
+Other Animals,QNM,tw,0.6427
+Oysters,FCM,warming,-2.98E+00
+Oysters,FCM,trawl,-8.33E+00
+Oysters,FCM,tw,-11.13068
+Oysters,BBN,warming,0.29
+Oysters,BBN,trawl,0.44
+Oysters,BBN,tw,0.29
+Oysters,QNM,warming,0.5029
+Oysters,QNM,trawl,0.2729
+Oysters,QNM,tw,0.4994
+Population Displacement,FCM,warming,1.06E+00
+Population Displacement,FCM,trawl,-1.77E-01
+Population Displacement,FCM,tw,0.5942188
+Population Displacement,BBN,warming,0.64
+Population Displacement,BBN,trawl,0.6
+Population Displacement,BBN,tw,0.64
+Population Displacement,QNM,warming,0.6949
+Population Displacement,QNM,trawl,0.7955
+Population Displacement,QNM,tw,0.6812
+Pr.species,FCM,warming,-1.44E-01
+Pr.species,FCM,trawl,-1.15E+00
+Pr.species,FCM,tw,-1.308829
+Pr.species,QNM,warming,0.6896
+Pr.species,QNM,trawl,0.1889
+Pr.species,QNM,tw,0.6867
+Pr.species,BBN,warming,0.24
+Pr.species,BBN,trawl,0.32
+Pr.species,BBN,tw,0.24
+Recreation,FCM,warming,-7.03E-02
+Recreation,FCM,trawl,4.29E-01
+Recreation,FCM,tw,0.367726
+Recreation,BBN,warming,0.27
+Recreation,BBN,trawl,0.33
+Recreation,BBN,tw,0.27
+Recreation,QNM,warming,0.3219
+Recreation,QNM,trawl,0.304
+Recreation,QNM,tw,0.3198
+SA,FCM,warming,-3.34E-02
+SA,FCM,trawl,8.06E-01
+SA,FCM,tw,0.780524
+SA,QNM,warming,0.3376
+SA,QNM,trawl,0.2903
+SA,QNM,tw,0.3442
+SA,BBN,warming,0.46
+SA,BBN,trawl,0.63
+SA,BBN,tw,0.63
+SAV,FCM,warming,-5.85E-01
+SAV,FCM,trawl,-7.37E-03
+SAV,FCM,tw,-0.5915111
+SAV,BBN,warming,0.41
+SAV,BBN,trawl,0.43
+SAV,BBN,tw,0.41
+SAV,QNM,warming,0.4533
+SAV,QNM,trawl,0.5841
+SAV,QNM,tw,0.4547
+Sea level rise,FCM,warming,5.99E+00
+Sea level rise,FCM,trawl,1.43E-14
+Sea level rise,FCM,tw,5.99296
+Sea level rise,BBN,warming,0.73
+Sea level rise,BBN,trawl,0.7
+Sea level rise,BBN,tw,0.79
+Sea level rise,QNM,warming,1
+Sea level rise,QNM,trawl,0
+Sea level rise,QNM,tw,1
+Sediment,FCM,warming,3.32E-02
+Sediment,FCM,trawl,4.91E-03
+Sediment,FCM,tw,0.03772525
+Sediment,BBN,warming,0.81
+Sediment,BBN,trawl,0.77
+Sediment,BBN,tw,0.78
+Sediment,QNM,warming,0.5526
+Sediment,QNM,trawl,0.1372
+Sediment,QNM,tw,0.5514
+Shellfish,FCM,warming,-8.54E-02
+Shellfish,FCM,trawl,-6.18E+00
+Shellfish,FCM,tw,-6.296137
+Shellfish,BBN,warming,0.42
+Shellfish,BBN,trawl,0.29
+Shellfish,BBN,tw,0.29
+Shellfish,QNM,warming,0.5099
+Shellfish,QNM,trawl,0.4432
+Shellfish,QNM,tw,0.5143
+Storm Surge,FCM,warming,9.36E-01
+Storm Surge,FCM,trawl,5.65E-02
+Storm Surge,FCM,tw,0.9877564
+Storm Surge,BBN,warming,0.85
+Storm Surge,BBN,trawl,0.83
+Storm Surge,BBN,tw,0.87
+Storm Surge,QNM,warming,1
+Storm Surge,QNM,trawl,0
+Storm Surge,QNM,tw,1
+Temperature,FCM,warming,5.17E+01
+Temperature,FCM,trawl,1.68E-14
+Temperature,FCM,tw,51.73446
+Temperature,BBN,warming,1
+Temperature,BBN,trawl,0.83
+Temperature,BBN,tw,1
+Temperature,QNM,warming,1
+Temperature,QNM,trawl,0
+Temperature,QNM,tw,1
+Tourism,FCM,warming,-5.80E-02
+Tourism,FCM,trawl,1.69E-01
+Tourism,FCM,tw,0.1158276
+Tourism,BBN,warming,0.25
+Tourism,BBN,trawl,0.31
+Tourism,BBN,tw,0.25
+Tourism,QNM,warming,0.3907
+Tourism,QNM,trawl,0.1559
+Tourism,QNM,tw,0.3719
+Tropical Storms,FCM,warming,5.01E+00
+Tropical Storms,FCM,trawl,2.98E-14
+Tropical Storms,FCM,tw,5.014856
+Tropical Storms,BBN,warming,0.55
+Tropical Storms,BBN,trawl,0.49
+Tropical Storms,BBN,tw,0.55
+Tropical Storms,QNM,warming,1
+Tropical Storms,QNM,trawl,0
+Tropical Storms,QNM,tw,1
+Wetlands,FCM,warming,-5.47E+00
+Wetlands,FCM,trawl,-6.45E-02
+Wetlands,FCM,tw,-5.527138
+Wetlands,BBN,warming,0.29
+Wetlands,BBN,trawl,0.44
+Wetlands,BBN,tw,0.29
+Wetlands,QNM,warming,0.3046
+Wetlands,QNM,trawl,0.138
+Wetlands,QNM,tw,0.3082

@@ -1,0 +1,88 @@
+System,Component,Group,Focal,Color,HEX
+MB,Oil Spills,Driver,Y,blue,#8da0cb
+MB,Farming,Ecosystem Services,Y,pink,#e78ac3
+MB,Oil and Gas,State,Y,green,#66c2a5
+MB,Tourism,Ecosystem Services,Y,pink,#e78ac3
+MB,Recreation,Ecosystem Services,Y,pink,#e78ac3
+MB,Hunting,Ecosystem Services,Y,pink,#e78ac3
+MB,Subsistance,Ecosystem Services,Y,pink,#e78ac3
+MB,Fishing,Ecosystem Services,Y,pink,#e78ac3
+MB,Habitable Land,State,Y,green,#66c2a5
+MB,Farm Land,State,N,green,#66c2a5
+MB,Community Infrastructure,Human Dimensions,Y,orange,#fc8d62
+MB,Jobs,Human Dimensions,Y,orange,#fc8d62
+MB,Navigable Waterways,State,N,green,#66c2a5
+MB,Population Displacement,Human Dimensions,Y,orange,#fc8d62
+MB,Health and Security,Human Dimensions,Y,orange,#fc8d62
+MB,Cultural,Human Dimensions,Y,orange,#fc8d62
+MB,Housing,Human Dimensions,Y,orange,#fc8d62
+MB,Temperature,Driver,N,blue,#8da0cb
+MB,Tropical Storms,Driver,N,blue,#8da0cb
+MB,Nutrients,Driver,N,blue,#8da0cb
+MB,Sediment,Driver,N,blue,#8da0cb
+MB,Flooding,Driver,Y,blue,#8da0cb
+MB,Erosion,Driver,N,blue,#8da0cb
+MB,Sea-level Rise,Driver,N,blue,#8da0cb
+MB,Storm Surge,Driver,Y,blue,#8da0cb
+MB,Invasive Species,Driver,N,blue,#8da0cb
+MB,Shellfish,State,N,green,#66c2a5
+MB,Oysters,State,Y,green,#66c2a5
+MB,Protected Species,State,Y,green,#66c2a5
+MB,Wetlands,State,N,green,#66c2a5
+MB,SAV,State,N,green,#66c2a5
+MB,Other Animals,State,N,green,#66c2a5
+MB,Fish,State,N,green,#66c2a5
+MB,Birds,State,N,green,#66c2a5
+MB,Open Water,State,N,green,#66c2a5
+BKC,Warming,Driver,N,blue,#8da0cb
+BKC,OA,Driver,N,blue,#8da0cb
+BKC,BKCL,State,Y,green,#66c2a5
+BKC,BKCB,State,Y,green,#66c2a5
+BKC,BKCJ,State,Y,green,#66c2a5
+BKC,BKCA,State,Y,green,#66c2a5
+BKC,RKCL,State,N,green,#66c2a5
+BKC,RKCB,State,N,green,#66c2a5
+BKC,RKCJ,State,N,green,#66c2a5
+BKC,RKCA,State,N,green,#66c2a5
+BKC,PO,State,N,green,#66c2a5
+BKC,PC,State,N,green,#66c2a5
+BKC,HalJ,State,N,green,#66c2a5
+BKC,HalA,State,N,green,#66c2a5
+BKC,smIP,State,N,green,#66c2a5
+BKC,smFP,State,N,green,#66c2a5
+BKC,Trawlfishery,Ecosystem Services,N,pink,#e78ac3
+BKC,Pcfishery,Ecosystem Services,N,pink,#e78ac3
+BKC,Halfishery,Ecosystem Services,N,pink,#e78ac3
+BKC,RKCfishery,Ecosystem Services,N,pink,#e78ac3
+BKC,Hatchery,Ecosystem Services,N,pink,#e78ac3
+GB,Employment,Human Dimensions,Y,orange,#fc8d62
+GB,Profits,Human Dimensions,Y,orange,#fc8d62
+GB,Seafood,Human Dimensions,Y,orange,#fc8d62
+GB,SocialCulturalValues,Human Dimensions,Y,orange,#fc8d62
+GB,CommercialGroundfishFishery,Ecosystem Services,N,pink,#e78ac3
+GB,CommercialPelagicFishery,Ecosystem Services,N,pink,#e78ac3
+GB,CommercialShellfishFishery,Ecosystem Services,N,pink,#e78ac3
+GB,RecreationalGroundfishFishery,Ecosystem Services,Y,pink,#e78ac3
+GB,AirTemperature,Driver,N,blue,#8da0cb
+GB,BottomSalinity,Driver,N,blue,#8da0cb
+GB,BottomTemperature,Driver,N,blue,#8da0cb
+GB,Precipitation,Driver,N,blue,#8da0cb
+GB,SourceWaterProportions,Driver,N,blue,#8da0cb
+GB,Stratification,Driver,N,blue,#8da0cb
+GB,SurfaceSalinity,Driver,N,blue,#8da0cb
+GB,SurfaceTemperature,Driver,N,blue,#8da0cb
+GB,TidalForcing,Driver,N,blue,#8da0cb
+GB,Winds,Driver,N,blue,#8da0cb
+GB,Benthos,State,N,green,#66c2a5
+GB,CopepodsMicronekton,State,N,green,#66c2a5
+GB,DetritusBacteria,State,N,green,#66c2a5
+GB,FishedInvertebrates,State,Y,green,#66c2a5
+GB,ForageFish,State,Y,green,#66c2a5
+GB,GelatinousZooplankton,State,N,green,#66c2a5
+GB,Groundfish,State,Y,green,#66c2a5
+GB,HabitatNearshore,State,Y,green,#66c2a5
+GB,HabitatPelagic,State,Y,green,#66c2a5
+GB,HabitatSeafloorDemersal,State,Y,green,#66c2a5
+GB,MidAtlanticGroundfish,State,N,green,#66c2a5
+GB,PrimaryProduction,State,N,green,#66c2a5
+GB,ProtectedSpecies,State,Y,green,#66c2a5
