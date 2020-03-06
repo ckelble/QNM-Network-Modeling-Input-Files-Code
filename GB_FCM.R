@@ -1,26 +1,17 @@
 #Fuzzy Cognizant Mapping using FCMapper
 #Georeges Bank
-if(Sys.info()['sysname']=="Windows"){
-  data.dir <- "C:/Users/Sean.Lucey/Desktop/QNM/IEA_QNM"
-  out.dir  <- "C:/Users/Sean.Lucey/Desktop/QNM/IEA_QNM"
-}
-if(Sys.info()['sysname']=="Linux"){
-  data.dir <- "/home/slucey/slucey/Rpath_code/data"
-  out.dir  <- "/home/slucey/slucey/Rpath_code/outputs"
-}
-data.dir <- "C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB"
-out.dir  <- "C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput"
+
 #-------------------------------------------------------------------------------
 #Required packages
-library(data.table); library(FCMapper)
+library(data.table); library(FCMapper); library(here)
 
 #-------------------------------------------------------------------------------
 #User created functions
 
 #-------------------------------------------------------------------------------
 #Load adjaceny matrix developed using mental modeler
-GB <- as.matrix(read.csv(file = file.path(data.dir, 'GB_QNM_adjacencyMat.csv'),
-                         row.names = 1))
+GB <- as.matrix(read.csv(file = here('GB_QNM_adjacencyMat.csv'), row.names = 1))
+
 GB[is.na(GB)] <- 0
 concept.names <- row.names(GB)
 
@@ -51,10 +42,10 @@ GB.CF <- changes.scenario(GB, concept.names, iter=50,
 summary(GB.CF)
 
 #Compare scenarios
-CC.compare <- comp.scenarios(GB.CC, NoChangesResults)
-GF.compare <- comp.scenarios(GB.GF, NoChangesResults)
-CF.compare <- comp.scenarios(GB.CF, NoChangesResults)
+CC.compare <- comp.scenarios(NoChangesResults, GB.CC)
+GF.compare <- comp.scenarios(NoChangesResults, GB.GF)
+CF.compare <- comp.scenarios(NoChangesResults, GB.CF)
 comp.maps(concept.names, concept.names)
 
 FCMresults <- list(CC=CC.compare, GF=GF.compare, CF=CF.compare)
-#save(FCMresults, file="C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
+save(FCMresults, file = here("FCMresults.RData"))
