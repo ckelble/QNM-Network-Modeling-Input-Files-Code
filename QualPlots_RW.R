@@ -14,6 +14,37 @@ dat1 <- dat1[!dat1$node%in%c("PCfishery", "Halfishery","Trawlfishery","Warming",
 dat2<-read.csv("GB.csv")
 dat2 <- dat2[dat2$model %in% c("FCM", "QNM"), ]
 dat2$sys<-  "gb"
+# bring in results from changing link sign on QNM and FCM models
+dat2$response <- NA
+load(file="C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
+load(file="C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/QNMresults.RData")
+FCMresults[[1]]$node <- gsub("[^[:alnum:]]", "", FCMresults[[1]]$Concept)
+test1 <- merge(dat2[dat2$model == "FCM" & dat2$press == "warming", ], FCMresults[[1]], by = "node")
+dat2[dat2$model == "FCM" & dat2$press == "warming", "response"] <- test1$Percent_change
+
+FCMresults[[2]]$node <- gsub("[^[:alnum:]]", "", FCMresults[[2]]$Concept)
+test1 <- merge(dat2[dat2$model == "FCM" & dat2$press == "trawl", ], FCMresults[[2]], by = "node")
+dat2[dat2$model == "FCM" & dat2$press == "trawl", "response"] <- test1$Percent_change
+
+FCMresults[[3]]$node <- gsub("[^[:alnum:]]", "", FCMresults[[3]]$Concept)
+test1 <- merge(dat2[dat2$model == "FCM" & dat2$press == "tw", ], FCMresults[[3]], by = "node")
+dat2[dat2$model == "FCM" & dat2$press == "tw", "response"] <- test1$Percent_change
+
+test3 <- as.data.frame(QNMresults$GFresults) 
+test3$node <- row.names(QNMresults$GFresults)
+test2 <- merge(dat2[dat2$model == "QNM" & dat2$press == "trawl", ], test3, by = "node")
+dat2[dat2$model == "QNM" & dat2$press == "trawl", "response"] <- test2$`+`/10000
+
+test3 <- as.data.frame(QNMresults$BTresults) 
+test3$node <- row.names(QNMresults$BTresults)
+test2 <- merge(dat2[dat2$model == "QNM" & dat2$press == "warming", ], test3, by = "node")
+dat2[dat2$model == "QNM" & dat2$press == "warming", "response"] <- test2$`+`/10000
+
+test3 <- as.data.frame(QNMresults$BTandGFres) 
+test3$node <- row.names(QNMresults$BTandGFres)
+test2 <- merge(dat2[dat2$model == "QNM" & dat2$press == "tw", ], test3, by = "node")
+dat2[dat2$model == "QNM" & dat2$press == "tw", "response"] <- test2$`+`/10000
+
 # Need to rebuild table to include SocCultVals and to bring in the state probabilities from updated BBN results
 updatedGB <- read.csv("GBupdatedresults_20190919.csv")
 newBBN <- data.frame(node = rep(updatedGB$Concept, 3), 
@@ -26,8 +57,8 @@ newBBN$response <- c((updatedGB$CC - updatedGB$Posterior)/updatedGB$Posterior,
                      (updatedGB$CF - updatedGB$Posterior)/updatedGB$Posterior)
 dat2 <- rbind(dat2, newBBN)
 
-load("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
-load("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/QNMresults.RData")
+#load("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
+#load("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/QNMresults.RData")
 addSCV <- data.frame(node = rep("SocialCulturalValues", 6),
                      model = rep(c("FCM", "QNM"), each = 3),
                      press = rep(c("warming", "trawl", "tw"), 2), 
@@ -65,8 +96,6 @@ dat <- merge(dat, cols, by.x = c("node", "sys"), by.y = c("Component", "System")
 
 dat[is.na(dat$sys), ]
 
-
-
 #highlight BKC 
 #dat$col<-"nonBKC"
 #dat$col[dat$node%in%c("BKCA","BKCB","BKCJ","BKCL")]<-"BKC"
@@ -74,7 +103,6 @@ dat[is.na(dat$sys), ]
 
 #QNM: percent Sign agreement 
 dat$res2[dat$model=="QNM"]<- (dat$response[dat$model=="QNM"] - .5)*2
-
 
 
 #NEED TO DO: MAKE Relative within run 
@@ -98,6 +126,20 @@ for (i in 1:3){
 
 
 dat$col<- as.factor(sign(dat$res2))
+
+# RW: need to hard code neutral responses (0 = 10000) for unaffected QNM components
+dat[dat$node %in% c("AirTemperature", "BottomSalinity", "DetritusBacteria", "GelatinousZooplankton", "MidAtlanticGroundfish", 
+                    "Precipitation",  "RecreationalGroundfishFishery", "SourceWaterProportions", "Stratification", "SurfaceSalinity",              
+                    "SurfaceTemperature", "TidalForcing", "Winds") & dat$model == "QNM",
+    "col"] <- 0
+dat[dat$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "PrimaryProduction") & dat$model == "QNM" & dat$press %in% c("trawl", "warming"),
+    "col"] <- 0
+dat[dat$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "PrimaryProduction") & dat$model == "QNM" & dat$press %in% c("tw"),
+    "res2"] <- (1/10000)*2
+dat[dat$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "PrimaryProduction") & dat$model == "QNM" & dat$press %in% c("tw"),
+    "col"] <- 1
+dat[dat$node %in% c("BottomTemperature", "HabitatNearshore") & dat$model == "QNM" & dat$press %in% c("trawl"),
+    "col"] <- 0
 
 dat$model <- factor(dat$model,levels(dat$model)[c(3, 1, 2)])
 
@@ -188,7 +230,15 @@ tag_facet2(p, tag_fun_top = function(i) c("Trawl", "Warming", "TW")[i])
 
 datwide<-dcast(dat, node + press +sys~ model, value.var="res2")
 
-
+# RW: need to hard code neutral responses (0 = 10000) for unaffected QNM components
+datwide[datwide$node %in% c("AirTemperature", "BottomSalinity", "DetritusBacteria", "GelatinousZooplankton", "MidAtlanticGroundfish", 
+                            "Precipitation",  "RecreationalGroundfishFishery", "SourceWaterProportions", "Stratification", "SurfaceSalinity",              
+                            "SurfaceTemperature", "TidalForcing", "Winds"),
+        "QNM"] <- 0
+datwide[datwide$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "PrimaryProduction") & datwide$press %in% c("trawl", "warming"),
+        "QNM"] <- 0
+datwide[datwide$node %in% c("BottomTemperature", "HabitatNearshore") & datwide$press %in% c("trawl"),
+        "QNM"] <- 0
 
 ggplot(datwide) + 
 geom_rect(aes(xmin=-1, xmax=0, ymin =-1, ymax = 0), 
