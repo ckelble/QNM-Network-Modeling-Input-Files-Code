@@ -1,0 +1,2 @@
+Please cite this work as:
+Kelble, C., Trifanova, N., Reum, J., Wildermuth, R.P., Lucey, S., Harvey, C. Multi-model inference from conceptual network models. GitHub: https://github.com/ckelble/QNM-Network-Modeling-Input-Files-Code

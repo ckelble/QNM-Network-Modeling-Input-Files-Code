@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Temp">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<probabilities>0.8 0.2</probabilities>
+		</cpt>
+		<noisymax id="n">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parameters>0.8 0.2</parameters>
+		</noisymax>
+		<cpt id="tr">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parents>Temp</parents>
+			<probabilities>0.55 0.45 0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="Sea_leve__rise">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>Temp</parents>
+			<probabilities>0.73 0.27 0.2 0.8</probabilities>
+		</cpt>
+		<noisymax id="ss">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parents>tr Sea_leve__rise</parents>
+			<strengths>0 1 0 1</strengths>
+			<parameters>0.7 0.3 0 1 0.77 0.23 0 1 0.46 0.54</parameters>
+		</noisymax>
+		<noisymax id="sed">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parents>ss</parents>
+			<strengths>0 1</strengths>
+			<parameters>0.62 0.38 0 1 0.52 0.48</parameters>
+		</noisymax>
+		<noisymax id="fl">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parents>ss Sea_leve__rise</parents>
+			<strengths>0 1 0 1</strengths>
+			<parameters>0.6 0.4 0 1 0.77 0.23 0 1 0.4399999999999999 0.5600000000000001</parameters>
+		</noisymax>
+		<noisymax id="invasive">
+			<state id="Increase" />
+			<state id="DEcline" />
+			<parents>Temp</parents>
+			<strengths>0 1</strengths>
+			<parameters>0.55 0.45 0 1 0.1900000000000001 0.8099999999999999</parameters>
+		</noisymax>
+		<cpt id="Node13">
+			<state id="increase" />
+			<state id="decline" />
+			<probabilities>0.7 0.3</probabilities>
+		</cpt>
+		<noisymax id="o">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>n sed Sea_leve__rise fl Node13</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.6699999999999999 0.33 0 1 0.48 0.52 0 1 0.29 0.71 0 1 0.45 0.55 0 1 0.29 0.71 0 1 0.4399999999999999 0.5600000000000001</parameters>
+		</noisymax>
+		<noisymax id="Copy_3_of_Node14">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>Node13</parents>
+			<strengths>0 1</strengths>
+			<parameters>0.48 0.52 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node1">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>invasive Copy_3_of_Node14</parents>
+			<strengths>0 1 0 1</strengths>
+			<parameters>0.17 0.83 0 1 0.55 0.45 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node8">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>invasive fl Node13 o Node1</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.8 0.2 0 1 0.6699999999999999 0.33 0 1 0.5800000000000001 0.42 0 1 0.41 0.59 0 1 0.27 0.73 0 1 0.55 0.45</parameters>
+		</noisymax>
+		<noisymax id="Node7">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>Sea_leve__rise invasive fl Node13</parents>
+			<strengths>0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.62 0.38 0 1 0.17 0.83 0 1 0.62 0.38 0 1 0.2 0.8 0 1 0.3300000000000001 0.6699999999999999</parameters>
+		</noisymax>
+		<noisymax id="Node4">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>n sed Sea_leve__rise invasive ss fl Node8 Node13 Node7</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.5900000000000001 0.41 0 1 0.54 0.46 0 1 0.29 0.71 0 1 0.3300000000000001 0.6699999999999999 0 1 0.37 0.63 0 1 0.4399999999999999 0.5600000000000001 0 1 0.26 0.74 0 1 0.33 0.67 0 1 0.47 0.53 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node5">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>n sed invasive Node13 Node7</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.7 0.3 0 1 0.37 0.63 0 1 0.25 0.75 0 1 0.41 0.59 0 1 0.6699999999999999 0.33 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_of_Node14">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>Node13 o Node4 Node5 Node7</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.33 0.67 0 1 0.5600000000000001 0.44 0 1 0.63 0.37 0 1 0.5800000000000001 0.42 0 1 0.74 0.26 0 1 0.3 0.7</parameters>
+		</noisymax>
+		<noisymax id="Node9">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>invasive Node13 o Node4 Node5 Node7 Copy_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.3300000000000001 0.6699999999999999 0 1 0.52 0.48 0 1 0.54 0.46 0 1 0.63 0.37 0 1 0.63 0.37 0 1 0.6699999999999999 0.33 0 1 0.7 0.3 0 1 0.3 0.7</parameters>
+		</noisymax>
+		<noisymax id="Node10">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>ss fl Node8 Node1 Copy_3_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.4299999999999999 0.5700000000000001 0 1 0.43 0.57 0 1 0.43 0.57 0 1 0.5600000000000001 0.44 0 1 0.55 0.45 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_4_of_Node14">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>Node13 Node4 Node7 Node9 Node10 o Copy_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.33 0.67 0 1 0.5700000000000001 0.43 0 1 0.6 0.4 0 1 0.87 0.13 0 1 0.54 0.46 0 1 0.6 0.4 0 1 0.63 0.37 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node11">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl o Node4 Node5 Node7 Copy_of_Node14 Node9 Copy_4_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.3300000000000001 0.6699999999999999 0 1 0.6699999999999999 0.33 0 1 0.5900000000000001 0.41 0 1 0.5600000000000001 0.44 0 1 0.9299999999999999 0.07000000000000001 0 1 0.55 0.45 0 1 0.5600000000000001 0.44 0 1 0.45 0.55 0 1 0.45 0.55</parameters>
+		</noisymax>
+		<noisymax id="Copy_5_of_Node14">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>Node13 Node4 Node11</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.45 0.55 0 1 0.6 0.4 0 1 0.53 0.47 0 1 0.67 0.33</parameters>
+		</noisymax>
+		<noisymax id="Node_8">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>Sea_leve__rise fl Node13 o Node4 Node5 Node7 Copy_of_Node14 Node9 Copy_5_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.43 0.57 0 1 0.45 0.55 0 1 0.43 0.57 0 1 0.54 0.46 0 1 0.73 0.27 0 1 0.5800000000000001 0.42 0 1 0.6699999999999999 0.33 0 1 0.7 0.3 0 1 0.5700000000000001 0.43 0 1 0.29 0.71 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_of_Node10">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>ss fl Node8 Sea_leve__rise sed Node10</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.37 0.63 0 1 0.43 0.57 0 1 0.43 0.57 0 1 0.37 0.63 0 1 0.55 0.45 0 1 0.86 0.14 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_2_of_Node10">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>ss fl Node8 Sea_leve__rise sed Node10</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.33 0.67 0 1 0.37 0.63 0 1 0.36 0.64 0 1 0.37 0.63 0 1 0.62 0.38 0 1 0.6699999999999999 0.33 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node12">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl Node7 Node1 Node_8 Node10 Copy_4_of_Node14 Copy_5_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.4399999999999999 0.5600000000000001 0 1 0.53 0.47 0 1 0.5600000000000001 0.44 0 1 0.6699999999999999 0.33 0 1 0.52 0.48 0 1 0.6699999999999999 0.33 0 1 0.6 0.4 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node14">
+			<state id="increase_" />
+			<state id="decline" />
+			<parents>Node13 o Node4 Node7 Copy_of_Node14 Node9</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.33 0.67 0 1 0.63 0.37 0 1 0.55 0.45 0 1 0.6699999999999999 0.33 0 1 0.5600000000000001 0.44 0 1 0.63 0.37 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_of_Node12">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl Node13 Node4 Node7 Node14 Node_8 Node11 Node10 Copy_4_of_Node14 Copy_5_of_Node14</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.4399999999999999 0.5600000000000001 0 1 0.33 0.67 0 1 0.53 0.47 0 1 0.6 0.4 0 1 0.63 0.37 0 1 0.64 0.36 0 1 0.5 0.5 0 1 0.5600000000000001 0.4399999999999999 0 1 0.6 0.4 0 1 0.5700000000000001 0.43 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node3">
+			<state id="State0" />
+			<state id="State1" />
+			<parents>Copy_of_Node10</parents>
+			<strengths>0 1</strengths>
+			<parameters>0.97 0.03000000000000003 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node2">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>Node1 Node10 Copy_4_of_Node14 Node12 Copy_of_Node12 Node3</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.5900000000000001 0.41 0 1 0.5600000000000001 0.4399999999999999 0 1 0.53 0.47 0 1 0.5700000000000001 0.43 0 1 0.6699999999999999 0.33 0 1 0.53 0.47 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Node6">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>Copy_4_of_Node14 Copy_5_of_Node14 Node3</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.63 0.37 0 1 0.6 0.4 0 1 0.52 0.48 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_3_of_Node12">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl Node13 Copy_3_of_Node14 Node12 Node6 Node3 Node2</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.47 0.53 0 1 0.4399999999999999 0.5600000000000001 0 1 0.5 0.5 0 1 0.64 0.36 0 1 0.6699999999999999 0.33 0 1 0.6 0.4 0 1 0.77 0.23 0 1 0.64 0.36</parameters>
+		</noisymax>
+		<noisymax id="Copy_3_of_Node10">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>ss fl Copy_2_of_Node10 Node2</parents>
+			<strengths>0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.4299999999999999 0.5700000000000001 0 1 0.47 0.53 0 1 0.5700000000000001 0.43 0 1 0.75 0.25 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_2_of_Node12">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl Node13 Node10 Copy_2_of_Node10 Node2 Copy_3_of_Node12 Copy_3_of_Node10</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.6699999999999999 0.33 0 1 0.7 0.3 0 1 0.48 0.52 0 1 0.43 0.57 0 1 0.36 0.64 0 1 0.47 0.53 0 1 0.36 0.64 0 1 0.5 0.5</parameters>
+		</noisymax>
+		<noisymax id="Copy_4_of_Node12">
+			<state id="increase" />
+			<state id="decline" />
+			<parents>fl Node8 Node13 o Node4 Node7 Node14 Copy_3_of_Node14 Copy_4_of_Node14 Copy_5_of_Node14 Node12 Node6 Node3 Copy_2_of_Node12 Copy_of_Node12</parents>
+			<strengths>0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1</strengths>
+			<parameters>0.45 0.55 0 1 0.47 0.53 0 1 0.37 0.63 0 1 0.6699999999999999 0.33 0 1 0.7 0.3 0 1 0.8 0.2 0 1 0.63 0.37 0 1 0.63 0.37 0 1 0.6699999999999999 0.33 0 1 0.6 0.4 0 1 0.53 0.47 0 1 0.73 0.27 0 1 0.53 0.47 0 1 0.27 0.73 0 1 0.53 0.47 0 1 0.5 0.5</parameters>
+		</noisymax>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.2.2601.0 ACADEMIC" name="Network1" faultnameformat="nodestate">
+			<node id="Temp">
+				<name>Temperature</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>64 22 185 81</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="n">
+				<name>Nutrients</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>593 13 714 72</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="sed">
+				<name>Sediment</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>373 9 494 68</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="fl">
+				<name>flooding</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>785 15 906 74</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="tr">
+				<name>tropical storms</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>25 127 146 186</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="ss">
+				<name>storm surge</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1014 11 1135 70</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Sea_leve__rise">
+				<name>Sea leve rise</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>41 207 153 269</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="invasive">
+				<name>Invasive species</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>226 105 347 164</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="o">
+				<name>Oysters</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>432 92 533 157</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node4">
+				<name>Wetlands</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>616 199 714 263</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node5">
+				<name>SAV</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>801 105 898 160</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node7">
+				<name>Open water</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>39 302 153 358</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node_8">
+				<name>Birds</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>227 289 341 345</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node8">
+				<name>Erosion</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>220 19 296 69</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node9">
+				<name>Fish</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>416 302 530 347</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node10">
+				<name>Comm. infra</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>855 201 945 250</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_of_Node10">
+				<name>Farm land</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>612 290 702 339</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_2_of_Node10">
+				<name>Habitable land</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>786 292 876 341</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_3_of_Node10">
+				<name>Housing</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1034 180 1124 229</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node11">
+				<name>other animals</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>310 184 426 250</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node12">
+				<name>Recreation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>633 397 732 447</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_of_Node12">
+				<name>Tourism</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>925 405 1024 455</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_2_of_Node12">
+				<name>Pop displ</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>792 551 891 601</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_3_of_Node12">
+				<name>Health and security</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1058 394 1157 444</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_4_of_Node12">
+				<name>Sense of place</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>783 400 882 450</position>
+				<barchart active="true" />
+			</node>
+			<node id="Node13">
+				<name>oil spills</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>35 399 122 448</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node14">
+				<name>Pr spp</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>26 522 143 585</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_of_Node14">
+				<name>shellfish</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>205 403 280 453</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Copy_3_of_Node14">
+				<name>Oil and gas</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>358 399 433 449</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_4_of_Node14">
+				<name>Fishing</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>206 543 281 593</position>
+				<barchart active="true" />
+			</node>
+			<node id="Copy_5_of_Node14">
+				<name>Hunting</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>511 397 586 447</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Node1">
+				<name>NW</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>981 546 1092 604</position>
+				<barchart active="true" />
+			</node>
+			<node id="Node2">
+				<name>Jobs</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>620 536 725 583</position>
+				<barchart active="true" />
+			</node>
+			<node id="Node3">
+				<name>farming</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>492 535 575 582</position>
+				<barchart active="true" />
+			</node>
+			<node id="Node6">
+				<name>SA</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>351 538 428 580</position>
+				<barchart active="true" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
