@@ -1,23 +1,20 @@
 
 
-# setwd("/Users/jonathanreum/Desktop/QNM_WG/BKC_model comparisons/three systems")
-setwd("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/results")
-
 library(reshape2)
 library(ggplot2)
 
-dat1<-read.csv("BKC.csv")
+dat1<-read.csv("results/PI/BKC.csv")
 dat1$sys<-  "bkc"
 #Remove press nodes
 dat1 <- dat1[!dat1$node%in%c("PCfishery", "Halfishery","Trawlfishery","Warming","OA","Hatchery","RKCfishery"),]
 
-dat2<-read.csv("GB.csv")
+dat2<-read.csv("results/GB/GB.csv")
 dat2 <- dat2[dat2$model %in% c("FCM", "QNM"), ]
 dat2$sys<-  "gb"
 # bring in results from changing link sign on QNM and FCM models
 dat2$response <- NA
-load(file="C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
-load(file="C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/QNMresults.RData")
+load(file="results/GB/FCMresults.RData")
+load(file="results/GB/QNMresults.RData")
 FCMresults[[1]]$node <- gsub("[^[:alnum:]]", "", FCMresults[[1]]$Concept)
 test1 <- merge(dat2[dat2$model == "FCM" & dat2$press == "warming", ], FCMresults[[1]], by = "node")
 dat2[dat2$model == "FCM" & dat2$press == "warming", "response"] <- test1$Percent_change
@@ -46,7 +43,7 @@ test2 <- merge(dat2[dat2$model == "QNM" & dat2$press == "tw", ], test3, by = "no
 dat2[dat2$model == "QNM" & dat2$press == "tw", "response"] <- test2$`+`/10000
 
 # Need to rebuild table to include SocCultVals and to bring in the state probabilities from updated BBN results
-updatedGB <- read.csv("GBupdatedresults_20190919.csv")
+updatedGB <- read.csv("results/GB/GBupdatedresults_20190919.csv")
 newBBN <- data.frame(node = rep(updatedGB$Concept, 3), 
                    model = rep("BBN", 3*31), 
                    press = rep(c("warming", "trawl", "tw"), each = 31), 
@@ -72,7 +69,7 @@ addSCV$response <- c(FCMresults$CC[FCMresults$CC$Concept == "Social & Cultural V
 dat2 <- rbind(dat2, addSCV)
 dat2$res2 <- dat2$response
 
-dat3<-read.csv("MBSD.csv")
+dat3<-read.csv("results/BB/MBSD.csv")
 dat3$sys<- "mb"
 # Fix some of the names for MBSD
 levels(dat3$node) <- c("Birds", "Community Infrastructure", "Cultural", "Erosion", "Farm Land", "Farming", 
@@ -89,7 +86,7 @@ dat3$res2[dat3$model=="BBN"]<- (dat3$response[dat3$model=="BBN"] - .5)*2
 dat<-rbind(dat1,dat2,dat3)
 
 # read in and merge with coloring scheme
-cols <- read.csv("ComponentGroupings.csv")
+cols <- read.csv("data/ComponentGroupings.csv")
 cols$System <- tolower(cols$System)
 
 dat <- merge(dat, cols, by.x = c("node", "sys"), by.y = c("Component", "System"), all.x = TRUE)
@@ -395,7 +392,7 @@ res<-melt(lapply(datll, FUN=function(x) lapply(x, FUN="getMets")))
 
 t1<-dcast(res,  L1 + var1 + var2 ~ variable + L2,function(x) round(mean(x),2))
 
-write.csv(t1, file="comm_metrics.csv")
+#write.csv(t1, file="comm_metrics.csv")
 
 
 
