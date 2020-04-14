@@ -1,5 +1,4 @@
 
-
 library(reshape2)
 library(ggplot2)
 
@@ -138,6 +137,11 @@ dat[dat$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "Primary
 dat[dat$node %in% c("BottomTemperature", "HabitatNearshore") & dat$model == "QNM" & dat$press %in% c("trawl"),
     "col"] <- 0
 
+# Also for BB QNM model:
+dat[dat$node %in% c("Oil and Gas", "Oil Spills") & dat$model == "QNM", "col"] <- 0
+dat[dat$node %in% c("Invasive Species", "Navigable Waterways", "Sea-level Rise", 
+                    "Storm Surge", "Temperature", "Tropical Storms") & dat$model == "QNM" & dat$press %in% c("trawl"), "col"] <- 0
+
 dat$model <- factor(dat$model,levels(dat$model)[c(3, 1, 2)])
 
 dat$press <- factor(dat$press,levels(dat$press)[c(1, 3, 2)])
@@ -182,7 +186,7 @@ tag_facet2 <-  function(p, open=c("(",""), close = c(")","."),
 }
 
 # "BBN" "FCM" "QNM"
-test1 <- subset(dat, sys=="gb")
+test1 <- subset(dat, sys=="mb")
 test1$node <- factor(test1$node, levels = unique(test1$node[order(test1$Group)]))
 test1$HEX <- as.character(test1$HEX)
 test1$Color <- as.character(test1$Color)
@@ -236,6 +240,14 @@ datwide[datwide$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", 
         "QNM"] <- 0
 datwide[datwide$node %in% c("BottomTemperature", "HabitatNearshore") & datwide$press %in% c("trawl"),
         "QNM"] <- 0
+
+# Also for BB QNM model:
+datwide[datwide$node %in% c("Oil and Gas", "Oil Spills"),  "QNM"] <- 0
+datwide[datwide$node %in% c("Invasive Species", "Navigable Waterways", "Sea-level Rise", 
+                            "Storm Surge", "Temperature", "Tropical Storms") & datwide$press %in% c("trawl"), "QNM"] <- 0
+
+# Save 'datwide' for reference
+write.csv(datwide, file = "results/plottingVals.csv")
 
 ggplot(datwide) + 
 geom_rect(aes(xmin=-1, xmax=0, ymin =-1, ymax = 0), 
@@ -392,7 +404,7 @@ res<-melt(lapply(datll, FUN=function(x) lapply(x, FUN="getMets")))
 
 t1<-dcast(res,  L1 + var1 + var2 ~ variable + L2,function(x) round(mean(x),2))
 
-#write.csv(t1, file="comm_metrics.csv")
+#write.csv(t1, file="comm_metrics_20200327.csv")
 
 
 
