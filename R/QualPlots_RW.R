@@ -137,9 +137,9 @@ dat[dat$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", "Primary
 dat[dat$node %in% c("BottomTemperature", "HabitatNearshore") & dat$model == "QNM" & dat$press %in% c("trawl"),
     "col"] <- 0
 
-# Also for BB QNM model:
-dat[dat$node %in% c("Oil and Gas", "Oil Spills") & dat$model == "QNM", "col"] <- 0
-dat[dat$node %in% c("Invasive Species", "Navigable Waterways", "Sea-level Rise", 
+# Also for BB QNM model (from Google Drive Comparison Manuscript/Plots/MBSD):
+dat[dat$node %in% c("Navigable Waterways", "Oil and Gas", "Oil Spills") & dat$model == "QNM", "col"] <- 0
+dat[dat$node %in% c("Invasive Species", "Sea-level Rise", 
                     "Storm Surge", "Temperature", "Tropical Storms") & dat$model == "QNM" & dat$press %in% c("trawl"), "col"] <- 0
 
 dat$model <- factor(dat$model,levels(dat$model)[c(3, 1, 2)])
@@ -241,9 +241,9 @@ datwide[datwide$node %in% c("Benthos", "CopepodsMicronekton", "HabitatPelagic", 
 datwide[datwide$node %in% c("BottomTemperature", "HabitatNearshore") & datwide$press %in% c("trawl"),
         "QNM"] <- 0
 
-# Also for BB QNM model:
-datwide[datwide$node %in% c("Oil and Gas", "Oil Spills"),  "QNM"] <- 0
-datwide[datwide$node %in% c("Invasive Species", "Navigable Waterways", "Sea-level Rise", 
+# Also for BB QNM model (from Google Drive Comparison Manuscript/Plots/MBSD):
+datwide[datwide$node %in% c("Navigable Waterways", "Oil and Gas", "Oil Spills"),  "QNM"] <- 0
+datwide[datwide$node %in% c("Invasive Species", "Sea-level Rise", 
                             "Storm Surge", "Temperature", "Tropical Storms") & datwide$press %in% c("trawl"), "QNM"] <- 0
 
 # Save 'datwide' for reference
@@ -404,7 +404,7 @@ res<-melt(lapply(datll, FUN=function(x) lapply(x, FUN="getMets")))
 
 t1<-dcast(res,  L1 + var1 + var2 ~ variable + L2,function(x) round(mean(x),2))
 
-#write.csv(t1, file="comm_metrics_20200327.csv")
+#write.csv(t1, file="comm_metrics_20200415.csv")
 
 
 

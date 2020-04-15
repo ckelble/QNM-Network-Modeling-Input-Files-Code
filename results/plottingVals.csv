@@ -183,8 +183,8 @@
 "182","Nutrients","warming","mb",-0.2184,0.6,0.000195357833655706
 "183","Nutrients","tw","mb",-0.2278,0.6,0.000196452615915968
 "184","Navigable Waterways","trawl","mb",0,-0.12,-0.000142666666666667
-"185","Navigable Waterways","warming","mb",-1,-0.18,-0.00495164410058027
-"186","Navigable Waterways","tw","mb",-1,-0.18,-0.00498818002546079
+"185","Navigable Waterways","warming","mb",0,-0.18,-0.00495164410058027
+"186","Navigable Waterways","tw","mb",0,-0.18,-0.00498818002546079
 "187","Oil and Gas","trawl","mb",0,-0.2,1.79333333333333e-14
 "188","Oil and Gas","warming","mb",0,-0.2,5.20309477756286e-15
 "189","Oil and Gas","tw","mb",0,-0.2,5.1996290286977e-15
