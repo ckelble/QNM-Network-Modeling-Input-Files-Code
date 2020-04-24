@@ -1,4 +1,4 @@
-
+library(readxl)
 library(reshape2)
 library(ggplot2)
 
@@ -69,13 +69,35 @@ dat2 <- rbind(dat2, addSCV)
 dat2$res2 <- dat2$response
 
 dat3<-read.csv("results/BB/MBSD.csv")
+
+# Check that BB results are correct
+# test4<- read_excel("results/BB/BBN results Prob of increase.xlsx")
+# test4$NODES <- c("Birds", "Community Infrastructure", "Erosion", "Farm Land", "Farming",
+#                  "Fish", "Fishing", "Flooding", "Habitable Land", "Health and Security", "Housing", 
+#                  "Hunting", "Invasive Species", "Jobs", "Navigable Waterways", "Nutrients", "Oil and Gas",
+#                  "Oil Spills", "Open Water", "Other Animals", "Oysters", "Population Displacement", "Protected Species",
+#                  "Recreation", "SAV", "Sea-level Rise", "Sediment", "Cultural", "Shellfish", 
+#                  "Storm Surge", "Subsistence", "Temperature", "Tourism", "Tropical Storms", "Wetlands")
+# 
+# bbBBN <- dat3[dat3$model == "BBN", ]
+# bbBBN <- dcast(bbBBN, node ~ press, value.var="response")
+# test5 <- merge(bbBBN, test4, by.x = "node", by.y = "NODES", all = TRUE)
+# 
+# test5$txt <- test5$trawl == test5$Fishing
+# test5$wxw <- test5$warming == test5$Temperature
+# test5$twxtw <- test5$tw == test5$`Temperature and Fishing`
+# 
+# all(test5$twxtw)
+# all(test5$txt)
+# all(test5$wxw)
+
 dat3$sys<- "mb"
 # Fix some of the names for MBSD
 levels(dat3$node) <- c("Birds", "Community Infrastructure", "Cultural", "Erosion", "Farm Land", "Farming", 
                        "Fish", "Fishing", "Flooding", "Habitable Land", "Health and Security", "Housing", 
                        "Hunting", "Invasive Species", "Jobs", "Nutrients", "Navigable Waterways", "Oil and Gas", 
                        "Oil Spills", "Open Water", "Other Animals", "Oysters", "Population Displacement", "Protected Species", 
-                       "Recreation", "Subsistance", "SAV", "Sea-level Rise", "Sediment", "Shellfish", 
+                       "Recreation", "Subsistence", "SAV", "Sea-level Rise", "Sediment", "Shellfish", 
                        "Storm Surge", "Temperature", "Tourism", "Tropical Storms", "Wetlands")
 
 #BBN: Percent Sign agreement 
@@ -112,16 +134,25 @@ for (i in 1:3){
 
 	for (j in 1:3){
 
-		top<- max(abs(dat$response[dat$model=="FCM" & dat$sys==sys[i] & dat$press==press[j]]))
+	  # scale by maximum non-pressed node response within case study system
+		top<- max(abs(dat$response[dat$model=="FCM" & dat$sys==sys[i] & 
+		                             !dat$node %in% c("Temperature", "Fishing", "BottomTemperature", "CommercialGroundfishFishery")]))
 
-		tscaled<-dat$response[dat$model=="FCM" & dat$sys==sys[i] & dat$press==press[j]]/top
+		tscaled<-dat$response[dat$model=="FCM" & dat$sys==sys[i]]/top
 
-		dat$res2[dat$model=="FCM" & dat$sys==sys[i] & dat$press==press[j]]<- tscaled
+		dat$res2[dat$model=="FCM" & dat$sys==sys[i]]<- tscaled
 	}
 }
 
 
 dat$col<- as.factor(sign(dat$res2))
+# make pressed nodes different shapes
+dat$chShape <- 16
+dat$chShape[dat$node %in% c("Temperature", "Fishing", 
+                            "BottomTemperature", "CommercialGroundfishFishery") & dat$press == "tw"] <- 12
+dat$chShape[dat$node %in% c("Fishing", "CommercialGroundfishFishery") & dat$press == "trawl"] <- 12
+dat$chShape[dat$node %in% c("Temperature", "BottomTemperature") & dat$press == "warming"] <- 12
+dat$chShape<- as.factor(dat$chShape)
 
 # RW: need to hard code neutral responses (0 = 10000) for unaffected QNM components
 dat[dat$node %in% c("AirTemperature", "BottomSalinity", "DetritusBacteria", "GelatinousZooplankton", "MidAtlanticGroundfish", 
@@ -186,16 +217,18 @@ tag_facet2 <-  function(p, open=c("(",""), close = c(")","."),
 }
 
 # "BBN" "FCM" "QNM"
-test1 <- subset(dat, sys=="mb")
+test1 <- subset(dat, sys=="bkc")
 test1$node <- factor(test1$node, levels = unique(test1$node[order(test1$Group)]))
 test1$HEX <- as.character(test1$HEX)
 test1$Color <- as.character(test1$Color)
 
 test2 <- unique(test1[order(test1$Group), c("node", "Focal", "HEX")])
 
-p <- ggplot(test1) + 	geom_point(aes(x=model, y=node, cex=abs(res2), colour=col)) + 
+p <- ggplot(test1) + 	geom_point(aes(x=model, y=node, size=abs(res2)*0.5, colour=col, shape = chShape)) + 
 				facet_wrap(sys~press) + theme_bw() + 
-				scale_color_manual(values=c("blue", "grey", "orangered")) + 
+				scale_color_manual(values=c("blue", "grey", "orangered")) +
+        #scale_shape_manual(values = c(21, 16)) +
+        scale_fill_manual(values = alpha(c("blue", "grey", "orangered"), 0.3)) +
 				theme(axis.line = element_line(colour = "black"),
     	panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
@@ -404,7 +437,7 @@ res<-melt(lapply(datll, FUN=function(x) lapply(x, FUN="getMets")))
 
 t1<-dcast(res,  L1 + var1 + var2 ~ variable + L2,function(x) round(mean(x),2))
 
-#write.csv(t1, file="comm_metrics_20200415.csv")
+#write.csv(t1, file="comm_metrics_20200424.csv")
 
 
 
