@@ -124,7 +124,7 @@ dat$res2[dat$model=="QNM"]<- (dat$response[dat$model=="QNM"] - .5)*2
 
 
 #NEED TO DO: MAKE Relative within run 
-dat$res2[dat$model=="FCM"]<- dat$response[dat$model=="FCM"]/100
+#dat$res2[dat$model=="FCM"]<- dat$response[dat$model=="FCM"]/100
 
 #Scale FCM relative to abs relative change 
 sys<-unique(dat$sys)
