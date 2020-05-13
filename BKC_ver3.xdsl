@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- This network was created in GeNIe Academic, which can be used for educational and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Warming">
+			<state id="change" />
+			<state id="no_change" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="HalJ">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Trawl_fishing">
+			<state id="change" />
+			<state id="no_change" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="HalA">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>HalJ Trawl_fishing</parents>
+			<probabilities>0.6 0.4 0.7 0.3 0.5 0.5 0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="Pacific_cod">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>Warming HalA Trawl_fishing</parents>
+			<probabilities>0.1667 0.8333 0.3 0.7 0.2333 0.7667 0.3667 0.6333 0.3667 0.6333 0.5 0.5 0.4333 0.5667 0.5667 0.4333</probabilities>
+		</cpt>
+		<cpt id="Pollock">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>Warming HalA Pacific_cod Trawl_fishing</parents>
+			<probabilities>0.2 0.8 0.3 0.7 0.3 0.7 0.4 0.6 0.3 0.7 0.4 0.6 0.4 0.6 0.5 0.5 0.35 0.65 0.45 0.55 0.45 0.55 0.55 0.45 0.45 0.55 0.55 0.45 0.55 0.45 0.65 0.35</probabilities>
+		</cpt>
+		<cpt id="small_pred">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>HalA Pacific_cod Pollock HalJ</parents>
+			<probabilities>0.2 0.8 0.25 0.75 0.35 0.65 0.4 0.6 0.35 0.65 0.4 0.6 0.5 0.5 0.55 0.45 0.3 0.7 0.35 0.65 0.45 0.55 0.5 0.5 0.45 0.55 0.5 0.5 0.6 0.4 0.65 0.35</probabilities>
+		</cpt>
+		<cpt id="RKC_Early">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>Pollock small_pred HalJ Warming</parents>
+			<probabilities>0.5 0.5 0.45 0.55 0.5 0.5 0.45 0.55 0.6 0.4 0.55 0.45 0.6 0.4 0.55 0.45 0.5 0.5 0.45 0.55 0.5 0.5 0.45 0.55 0.6 0.4 0.55 0.45 0.6 0.4 0.55 0.45</probabilities>
+		</cpt>
+		<cpt id="RKC_Late">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>RKC_Early Pacific_cod HalA Warming Trawl_fishing</parents>
+			<probabilities>0.54 0.46 0.62 0.38 0.5 0.5 0.58 0.42 0.54 0.46 0.62 0.38 0.5 0.5 0.58 0.42 0.62 0.38 0.7 0.3 0.58 0.42 0.66 0.34 0.62 0.38 0.7 0.3 0.58 0.42 0.66 0.34 0.38 0.62 0.46 0.54 0.34 0.66 0.42 0.58 0.38 0.62 0.46 0.54 0.34 0.66 0.42 0.58 0.46 0.54 0.54 0.46 0.42 0.58 0.5 0.5 0.46 0.54 0.54 0.46 0.42 0.58 0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="BKC_Early">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>Warming Pollock HalJ RKC_Early RKC_Late small_pred</parents>
+			<probabilities>0.2667 0.7333 0.3333 0.6667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.2667 0.7333 0.3333 0.6667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.2667 0.7333 0.3333 0.6667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.2667 0.7333 0.3333 0.6667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.5667 0.4333 0.6333 0.3667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.5667 0.4333 0.6333 0.3667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.5667 0.4333 0.6333 0.3667 0.3667 0.6333 0.4333 0.5667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.5667 0.4333 0.6333 0.3667</probabilities>
+		</cpt>
+		<cpt id="BKC_Late">
+			<state id="increasing" />
+			<state id="decreasing" />
+			<parents>Warming BKC_Early Pacific_cod RKC_Late HalA Trawl_fishing</parents>
+			<probabilities>0.4333 0.5667 0.5 0.5 0.4333 0.5667 0.5 0.5 0.4333 0.5667 0.5 0.5 0.4333 0.5667 0.5 0.5 0.5 0.5 0.5667 0.4333 0.5 0.5 0.5667 0.4333 0.5 0.5 0.5667 0.4333 0.5 0.5 0.5667 0.4333 0.3 0.7 0.3667 0.6333 0.3 0.7 0.3667 0.6333 0.3 0.7 0.3667 0.6333 0.3 0.7 0.3667 0.6333 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.3667 0.6333 0.4333 0.5667 0.5333 0.4667 0.6 0.4 0.5333 0.4667 0.6 0.4 0.5333 0.4667 0.6 0.4 0.5333 0.4667 0.6 0.4 0.6 0.4 0.6667 0.3333 0.6 0.4 0.6667 0.3333 0.6 0.4 0.6667 0.3333 0.6 0.4 0.6667 0.3333 0.4 0.6 0.4667 0.5333 0.4 0.6 0.4667 0.5333 0.4 0.6 0.4667 0.5333 0.4 0.6 0.4667 0.5333 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667 0.4667 0.5333 0.5333 0.4667</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.2.2601.0 ACADEMIC" name="Network1" faultnameformat="nodestate">
+			<node id="BKC_Early">
+				<name>BKC early stages</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>248 316 296 346</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="BKC_Late">
+				<name>BKC late stages</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>560 317 608 347</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="RKC_Early">
+				<name>RKC early stages</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>211 457 259 487</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="RKC_Late">
+				<name>RKC late stages</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>591 505 639 535</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Warming">
+				<name>Warming</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>98 95 150 127</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+			<node id="Pollock">
+				<name>Pollock</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>561 186 613 218</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Pacific_cod">
+				<name>Pacific cod</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>817 56 869 88</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+			<node id="HalJ">
+				<name>HalJ</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>908 640 960 672</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="small_pred">
+				<name>small Pred</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>714 638 766 670</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="HalA">
+				<name>HalA</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>877 327 929 359</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Trawl_fishing">
+				<name>Trawl fishing</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>285 27 337 59</position>
+				<barchart active="true" width="128" height="54" />
+			</node>
+		</genie>
+	</extensions>
+</smile>

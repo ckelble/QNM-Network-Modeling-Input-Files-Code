@@ -48,9 +48,9 @@ newBBN <- data.frame(node = rep(updatedGB$Concept, 3),
                    press = rep(c("warming", "trawl", "tw"), each = 31), 
                    sys = rep("gb", 3*31))
 # Make GB responses relative to uninfluenced posterior baseline
-newBBN$response <- c((updatedGB$CC - updatedGB$Posterior)/updatedGB$Posterior, 
-                     (updatedGB$GF - updatedGB$Posterior)/updatedGB$Posterior, 
-                     (updatedGB$CF - updatedGB$Posterior)/updatedGB$Posterior)
+newBBN$response <- c((updatedGB$CC - updatedGB$Posterior),#/updatedGB$Posterior, 
+                     (updatedGB$GF - updatedGB$Posterior),#/updatedGB$Posterior, 
+                     (updatedGB$CF - updatedGB$Posterior))#/updatedGB$Posterior)
 dat2 <- rbind(dat2, newBBN)
 
 #load("C:/Users/rwildermuth/Dropbox/PhD_UMass/QNMproject/GB/msOutput/FCMresults.RData")
@@ -69,6 +69,31 @@ dat2 <- rbind(dat2, addSCV)
 dat2$res2 <- dat2$response
 
 dat3<-read.csv("results/BB/MBSD.csv")
+# make BBN vals as difference from baseline
+baselineBB <- read_excel("results/BB/BBN results Prob of increase.xlsx")
+baselineBB$NODES <- c("Birds", "Community Infrastructure", "Erosion", "Farm Land", "Farming",
+                      "Fish", "Fishing", "Flooding", "Habitable Land", "Health and Security", "Housing",
+                      "Hunting", "Invasive Species", "Jobs", "Navigable Waterways", "Nutrients", "Oil and Gas",
+                      "Oil Spills", "Open Water", "Other Animals", "Oysters", "Population Displacement", "Protected Species",
+                      "Recreation", "SAV", "Sea-level Rise", "Sediment", "Cultural", "Shellfish",
+                      "Storm Surge", "Subsistence", "Temperature", "Tourism", "Tropical Storms", "Wetlands")
+baselineBB$Temperature <- baselineBB$Temperature - baselineBB$Baseline
+baselineBB$Fishing <- baselineBB$Fishing - baselineBB$Baseline
+baselineBB$`Temperature and Fishing` <- baselineBB$`Temperature and Fishing` - baselineBB$Baseline
+
+longBBdiffs <- data.frame(node = rep(baselineBB$NODES, 3), model = rep("BBN", 3*length(baselineBB$NODES)),
+                          press = rep(c("warming", "trawl", "tw"), each = length(baselineBB$NODES)),
+                          response = c(baselineBB$Temperature, baselineBB$Fishing, baselineBB$`Temperature and Fishing`))
+# Fix some of the names for MBSD
+levels(dat3$node) <- c("Birds", "Community Infrastructure", "Cultural", "Erosion", "Farm Land", "Farming", 
+                       "Fish", "Fishing", "Flooding", "Habitable Land", "Health and Security", "Housing", 
+                       "Hunting", "Invasive Species", "Jobs", "Nutrients", "Navigable Waterways", "Oil and Gas", 
+                       "Oil Spills", "Open Water", "Other Animals", "Oysters", "Population Displacement", "Protected Species", 
+                       "Recreation", "Subsistence", "SAV", "Sea-level Rise", "Sediment", "Shellfish", 
+                       "Storm Surge", "Temperature", "Tourism", "Tropical Storms", "Wetlands")
+dat3 <- rbind(dat3[dat3$model %in% c("FCM", "QNM"), ], longBBdiffs)
+
+dat3$sys<- "mb"
 
 # Check that BB results are correct
 # test4<- read_excel("results/BB/BBN results Prob of increase.xlsx")
@@ -91,18 +116,12 @@ dat3<-read.csv("results/BB/MBSD.csv")
 # all(test5$txt)
 # all(test5$wxw)
 
-dat3$sys<- "mb"
-# Fix some of the names for MBSD
-levels(dat3$node) <- c("Birds", "Community Infrastructure", "Cultural", "Erosion", "Farm Land", "Farming", 
-                       "Fish", "Fishing", "Flooding", "Habitable Land", "Health and Security", "Housing", 
-                       "Hunting", "Invasive Species", "Jobs", "Nutrients", "Navigable Waterways", "Oil and Gas", 
-                       "Oil Spills", "Open Water", "Other Animals", "Oysters", "Population Displacement", "Protected Species", 
-                       "Recreation", "Subsistence", "SAV", "Sea-level Rise", "Sediment", "Shellfish", 
-                       "Storm Surge", "Temperature", "Tourism", "Tropical Storms", "Wetlands")
+
+
 
 #BBN: Percent Sign agreement 
 dat1$res2[dat1$model=="BBN"]<- (dat1$response[dat1$model=="BBN"] - .5)*2
-dat3$res2[dat3$model=="BBN"]<- (dat3$response[dat3$model=="BBN"] - .5)*2
+#dat3$res2[dat3$model=="BBN"]<- (dat3$response[dat3$model=="BBN"] - .5)*2
 
 dat<-rbind(dat1,dat2,dat3)
 
@@ -126,7 +145,7 @@ dat$res2[dat$model=="QNM"]<- (dat$response[dat$model=="QNM"] - .5)*2
 #NEED TO DO: MAKE Relative within run 
 #dat$res2[dat$model=="FCM"]<- dat$response[dat$model=="FCM"]/100
 
-#Scale FCM relative to abs relative change 
+#Scale FCM and BBN relative to abs relative change 
 sys<-unique(dat$sys)
 press<- unique(dat$press)
 
@@ -141,6 +160,13 @@ for (i in 1:3){
 		tscaled<-dat$response[dat$model=="FCM" & dat$sys==sys[i]]/top
 
 		dat$res2[dat$model=="FCM" & dat$sys==sys[i]]<- tscaled
+		
+		topBBN<- max(abs(dat$response[dat$model=="BBN" & dat$sys==sys[i] & 
+		                             !dat$node %in% c("Temperature", "Fishing", "BottomTemperature", "CommercialGroundfishFishery")]))
+		
+		tscaledBBN<-dat$response[dat$model=="BBN" & dat$sys==sys[i]]/topBBN
+		
+		dat$res2[dat$model=="BBN" & dat$sys==sys[i]]<- tscaledBBN
 	}
 }
 
