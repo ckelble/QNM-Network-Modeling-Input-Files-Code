@@ -1,0 +1,32 @@
+Concept,X,Group,HEX,posState,Posterior,w,t,tw
+AirTemperature,AT,Hydro/Geophysical,#8da0cb,High,0.46623817,0.62228229,0.46623817,0.61166349
+Benthos,benthos,Ecological,#66c2a5,High,0.47355307,0.47351748,0.47352283,0.47349763
+BottomSalinity,BS,Hydro/Geophysical,#8da0cb,High,0.57438429,0.61279206,0.582655,0.61255274
+BottomTemperature,BT,Hydro/Geophysical,#8da0cb,High,0.43412315,1,0.41605817,1
+CommercialGroundfishFishery,commGF,Human-Nature Interactions,#e78ac3,Above MSY,0.795537,0.76243268,1,1
+CommercialPelagicFishery,commPel,Human-Nature Interactions,#e78ac3,Above MSY,0.61147956,0.62500072,0.59867666,0.61126406
+CommercialShellfishFishery,commSF,Human-Nature Interactions,#e78ac3,Above MSY,0.79487181,0.78293112,0.80617819,0.79506212
+CopepodsMicronekton,copepod,Ecological,#66c2a5,High,0.38600578,0.38502795,0.38517494,0.38448287
+DetritusBacteria,detBac,Ecological,#66c2a5,High,0.58493324,0.58493324,0.58493324,0.58493324
+Employment,employment,Human Communities,#fc8d62,High,0.5187452,0.52014726,0.51618744,0.51667916
+FishedInvertebrates,inverts,Ecological,#66c2a5,Above 0.5Bmsy,0.29448323,0.29982848,0.28601784,0.29239178
+ForageFish,forage,Ecological,#66c2a5,Above 0.5Bmsy,0.62375679,0.62363475,0.62859071,0.62878743
+GelatinousZooplankton,GZ,Ecological,#66c2a5,High,0.59061042,0.59061042,0.59061042,0.59061042
+Groundfish,ground,Ecological,#66c2a5,Above 0.5Bmsy,0.76461894,0.75896542,0.79261612,0.79076658
+HabitatNearshore,habNear,Ecological,#66c2a5,Increasing,0.37432309,0.35200127,0.38062134,0.35713311
+HabitatPelagic,habPel,Ecological,#66c2a5,High,0.46283604,0.44864637,0.45077941,0.44073666
+HabitatSeafloorDemersal,habDem,Ecological,#66c2a5,High,0.60168792,0.57247226,0.60018375,0.55604098
+MidAtlanticGroundfish,gfMAB,Ecological,#66c2a5,High,0.48461084,0.49440032,0.48348185,0.49013226
+Precipitation,precip,Hydro/Geophysical,#8da0cb,High,0.37358885,0.37358885,0.37358885,0.37358885
+PrimaryProduction,PP,Ecological,#66c2a5,High,0.17342649,0.17081654,0.17120888,0.16936169
+Profits,profits,Human Communities,#fc8d62,High,0.41270941,0.42629216,0.37316222,0.38096636
+ProtectedSpecies,PS,Ecological,#66c2a5,High,0.50742237,0.51212642,0.48994787,0.49196676
+RecreationalGroundfishFishery,recParticip,Human-Nature Interactions,#e78ac3,High,0.45531348,0.47556672,0.45297773,0.46673661
+Seafood,seafood,Human Communities,#fc8d62,High,0.44604141,0.46146191,0.40175365,0.40663878
+SourceWaterProportions,pctLSW,Hydro/Geophysical,#8da0cb,High,0.48897689,0.52853013,0.48897689,0.51936627
+Stratification,strat,Hydro/Geophysical,#8da0cb,High,0.50033972,0.51556178,0.50266663,0.51450446
+SurfaceSalinity,SSS,Hydro/Geophysical,#8da0cb,High,0.57535227,0.61613795,0.58133515,0.61285263
+SurfaceTemperature,SST,Hydro/Geophysical,#8da0cb,High,0.4871785,0.58981727,0.47920214,0.57308591
+TidalForcing,tides,Hydro/Geophysical,#8da0cb,Max,0.17222222,0.17222222,0.17222222,0.17222222
+Winds,winds,Hydro/Geophysical,#8da0cb,High,0.41510967,0.51840567,0.31730083,0.41346332
+SocialCulturalValues,soccultvals,Human Communities,#fc8d62,Better,0.29883233,0.29863966,0.31229777,0.31367366
